@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements MainBusiness.MainView
     }
 
     @Override
-    public void showInitResult(String result)
+    public void bsv_showInitResult(String result)
     {
         tv_result.setText(result);
     }

@@ -29,20 +29,20 @@ public class MainBusinessImpl extends MainBusiness
             public void onStart()
             {
                 super.onStart();
-                getView().showProgress("请稍后");
+                getView().bsv_showProgress("请稍后");
             }
 
             @Override
             public void onSuccess()
             {
-                getView().showInitResult(getResult());
+                getView().bsv_showInitResult(getResult());
             }
 
             @Override
             public void onFinish()
             {
                 super.onFinish();
-                getView().hideProgress();
+                getView().bsv_hideProgress();
             }
         });
     }
