@@ -3,13 +3,13 @@ package com.fanwe.www.develop.activity;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 
-import com.fanwe.lib.develop.view.IProgressView;
+import com.fanwe.lib.develop.view.IBSProgressView;
 
 /**
  * Created by Administrator on 2017/10/31.
  */
 
-public class BaseActivity extends AppCompatActivity implements IProgressView
+public class BaseActivity extends AppCompatActivity implements IBSProgressView
 {
     private ProgressDialog mProgressDialog;
 

@@ -1,7 +1,7 @@
 package com.fanwe.www.develop.business;
 
 import com.fanwe.lib.develop.business.BaseBusiness;
-import com.fanwe.lib.develop.view.IProgressView;
+import com.fanwe.lib.develop.view.IBSProgressView;
 import com.fanwe.lib.develop.view.IBSView;
 
 /**
@@ -14,7 +14,7 @@ public abstract class MainBusiness extends BaseBusiness<MainBusiness.MainView>
      */
     abstract public void requestInitAndShow();
 
-    public interface MainView extends IBSView, IProgressView
+    public interface MainView extends IBSView, IBSProgressView
     {
         /**
          * 显示初始化接口的结果
