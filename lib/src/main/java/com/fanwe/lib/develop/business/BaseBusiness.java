@@ -1,7 +1,6 @@
 package com.fanwe.lib.develop.business;
 
 import com.fanwe.lib.develop.callback.IBSCallback;
-import com.fanwe.lib.develop.callback.IBSProgressCallback;
 
 /**
  * Created by zhengjun on 2017/10/31.
@@ -40,10 +39,9 @@ public abstract class BaseBusiness<T extends IBSCallback> implements IBusiness<T
     public void showProgress(String msg)
     {
         final T callback = getCallback();
-        if (callback instanceof IBSProgressCallback)
+        if (callback != null)
         {
-            IBSProgressCallback progressCallback = (IBSProgressCallback) callback;
-            progressCallback.onBsShowProgress(msg);
+            callback.onBsShowProgress(msg);
         }
     }
 
@@ -53,10 +51,9 @@ public abstract class BaseBusiness<T extends IBSCallback> implements IBusiness<T
     public void hideProgress()
     {
         final T callback = getCallback();
-        if (callback instanceof IBSProgressCallback)
+        if (callback != null)
         {
-            IBSProgressCallback progressCallback = (IBSProgressCallback) callback;
-            progressCallback.onBsHideProgress();
+            callback.onBsHideProgress();
         }
     }
 }

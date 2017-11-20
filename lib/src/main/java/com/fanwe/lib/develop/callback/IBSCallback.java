@@ -5,4 +5,7 @@ package com.fanwe.lib.develop.callback;
  */
 public interface IBSCallback
 {
+    void onBsShowProgress(String msg);
+
+    void onBsHideProgress();
 }

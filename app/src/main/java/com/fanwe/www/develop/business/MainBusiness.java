@@ -1,7 +1,6 @@
 package com.fanwe.www.develop.business;
 
 import com.fanwe.lib.develop.business.BaseBusiness;
-import com.fanwe.lib.develop.callback.IBSProgressCallback;
 import com.fanwe.lib.develop.callback.IBSCallback;
 import com.fanwe.lib.http.PostRequest;
 import com.fanwe.lib.http.Request;
@@ -55,7 +54,7 @@ public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
         RequestManager.getInstance().cancelTag(MainBusiness.class.getName());
     }
 
-    public interface Callback extends IBSCallback, IBSProgressCallback
+    public interface Callback extends IBSCallback
     {
         /**
          * 显示初始化接口的结果
