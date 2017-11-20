@@ -42,7 +42,8 @@ public abstract class BaseBusiness<T extends IBSCallback> implements IBusiness<T
         final T callback = getCallback();
         if (callback instanceof IBSProgressCallback)
         {
-            ((IBSProgressCallback) callback).onBsShowProgress(msg);
+            IBSProgressCallback progressCallback = (IBSProgressCallback) callback;
+            progressCallback.onBsShowProgress(msg);
         }
     }
 
@@ -54,7 +55,8 @@ public abstract class BaseBusiness<T extends IBSCallback> implements IBusiness<T
         final T callback = getCallback();
         if (callback instanceof IBSProgressCallback)
         {
-            ((IBSProgressCallback) callback).onBsHideProgress();
+            IBSProgressCallback progressCallback = (IBSProgressCallback) callback;
+            progressCallback.onBsHideProgress();
         }
     }
 }
