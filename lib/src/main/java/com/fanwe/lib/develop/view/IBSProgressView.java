@@ -6,7 +6,7 @@ package com.fanwe.lib.develop.view;
 
 public interface IBSProgressView extends IBSView
 {
-    void bsv_showProgress(String msg);
+    void onBsShowProgress(String msg);
 
-    void bsv_hideProgress();
+    void onBsHideProgress();
 }

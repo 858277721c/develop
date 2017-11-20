@@ -29,7 +29,7 @@ public class MainBusinessImpl extends MainBusiness
             public void onStart()
             {
                 super.onStart();
-                getView().bsv_showProgress("请稍后");
+                getView().onBsShowProgress("请稍后");
             }
 
             @Override
@@ -42,7 +42,7 @@ public class MainBusinessImpl extends MainBusiness
             public void onFinish()
             {
                 super.onFinish();
-                getView().bsv_hideProgress();
+                getView().onBsHideProgress();
             }
         });
     }

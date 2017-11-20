@@ -14,7 +14,7 @@ public class BaseActivity extends AppCompatActivity implements IBSProgressView
     private ProgressDialog mProgressDialog;
 
     @Override
-    public void bsv_showProgress(String msg)
+    public void onBsShowProgress(String msg)
     {
         if (mProgressDialog == null)
         {
@@ -25,7 +25,7 @@ public class BaseActivity extends AppCompatActivity implements IBSProgressView
     }
 
     @Override
-    public void bsv_hideProgress()
+    public void onBsHideProgress()
     {
         if (mProgressDialog != null)
         {
