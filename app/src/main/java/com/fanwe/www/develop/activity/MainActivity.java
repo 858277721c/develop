@@ -7,11 +7,10 @@ import android.widget.TextView;
 
 import com.fanwe.www.develop.R;
 import com.fanwe.www.develop.business.MainBusiness;
-import com.fanwe.www.develop.business.impl.MainBusinessImpl;
 
 public class MainActivity extends BaseActivity implements MainBusiness.MainView
 {
-    private MainBusiness mBusiness = new MainBusinessImpl();
+    private MainBusiness mBusiness = new MainBusiness();
 
     private Button btn_request;
     private TextView tv_result;
@@ -37,7 +36,7 @@ public class MainActivity extends BaseActivity implements MainBusiness.MainView
     }
 
     @Override
-    public void bsv_showInitResult(String result)
+    public void onBsShowInitResult(String result)
     {
         tv_result.setText(result);
     }
