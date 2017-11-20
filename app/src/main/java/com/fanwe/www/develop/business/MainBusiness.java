@@ -2,6 +2,7 @@ package com.fanwe.www.develop.business;
 
 import com.fanwe.lib.develop.business.BaseBusiness;
 import com.fanwe.lib.develop.callback.IBSCallback;
+import com.fanwe.lib.develop.callback.IBSProgressCallback;
 import com.fanwe.lib.http.PostRequest;
 import com.fanwe.lib.http.Request;
 import com.fanwe.lib.http.RequestManager;
@@ -30,7 +31,7 @@ public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
             public void onStart()
             {
                 super.onStart();
-                getCallback().onBsShowProgress("请稍后");
+                showProgress("请稍后");
             }
 
             @Override
@@ -43,7 +44,7 @@ public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
             public void onFinish()
             {
                 super.onFinish();
-                getCallback().onBsHideProgress();
+                hideProgress();
             }
         });
     }
@@ -54,7 +55,7 @@ public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
         RequestManager.getInstance().cancelTag(MainBusiness.class.getName());
     }
 
-    public interface Callback extends IBSCallback
+    public interface Callback extends IBSCallback, IBSProgressCallback
     {
         /**
          * 显示初始化接口的结果
