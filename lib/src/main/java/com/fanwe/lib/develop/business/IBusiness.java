@@ -5,9 +5,9 @@ package com.fanwe.lib.develop.business;
  */
 public interface IBusiness<V>
 {
-    void setView(V view);
+    void setCallback(V callback);
 
-    V getView();
+    V getCallback();
 
     void onDestroy();
 }

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.fanwe.www.develop.R;
 import com.fanwe.www.develop.business.MainBusiness;
 
-public class MainActivity extends BaseActivity implements MainBusiness.MainView
+public class MainActivity extends BaseActivity implements MainBusiness.Callback
 {
     private MainBusiness mBusiness = new MainBusiness();
 
@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity implements MainBusiness.MainView
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mBusiness.setView(this);
+        mBusiness.setCallback(this);
 
         btn_request = (Button) findViewById(R.id.btn_request);
         tv_result = (TextView) findViewById(R.id.tv_result);

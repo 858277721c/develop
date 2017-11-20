@@ -1,23 +1,23 @@
 package com.fanwe.lib.develop.business;
 
-import com.fanwe.lib.develop.view.IBSView;
+import com.fanwe.lib.develop.callback.IBSCallback;
 
 /**
  * Created by zhengjun on 2017/10/31.
  */
-public abstract class BaseBusiness<V extends IBSView> implements IBusiness<V>
+public abstract class BaseBusiness<V extends IBSCallback> implements IBusiness<V>
 {
-    private V mView;
+    private V mCallback;
 
     @Override
-    public void setView(V view)
+    public void setCallback(V callback)
     {
-        mView = view;
+        mCallback = callback;
     }
 
     @Override
-    public V getView()
+    public V getCallback()
     {
-        return mView;
+        return mCallback;
     }
 }

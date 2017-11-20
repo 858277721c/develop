@@ -1,8 +1,8 @@
 package com.fanwe.www.develop.business;
 
 import com.fanwe.lib.develop.business.BaseBusiness;
-import com.fanwe.lib.develop.view.IBSProgressView;
-import com.fanwe.lib.develop.view.IBSView;
+import com.fanwe.lib.develop.callback.IBSProgressCallback;
+import com.fanwe.lib.develop.callback.IBSCallback;
 import com.fanwe.lib.http.PostRequest;
 import com.fanwe.lib.http.Request;
 import com.fanwe.lib.http.RequestManager;
@@ -11,7 +11,7 @@ import com.fanwe.lib.http.callback.StringRequestCallback;
 /**
  * Created by Administrator on 2017/10/31.
  */
-public class MainBusiness extends BaseBusiness<MainBusiness.MainView>
+public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
 {
 
     public void requestInitAndShow()
@@ -31,20 +31,20 @@ public class MainBusiness extends BaseBusiness<MainBusiness.MainView>
             public void onStart()
             {
                 super.onStart();
-                getView().onBsShowProgress("请稍后");
+                getCallback().onBsShowProgress("请稍后");
             }
 
             @Override
             public void onSuccess()
             {
-                getView().onBsShowInitResult(getResult());
+                getCallback().onBsShowInitResult(getResult());
             }
 
             @Override
             public void onFinish()
             {
                 super.onFinish();
-                getView().onBsHideProgress();
+                getCallback().onBsHideProgress();
             }
         });
     }
@@ -55,7 +55,7 @@ public class MainBusiness extends BaseBusiness<MainBusiness.MainView>
         RequestManager.getInstance().cancelTag(MainBusiness.class.getName());
     }
 
-    public interface MainView extends IBSView, IBSProgressView
+    public interface Callback extends IBSCallback, IBSProgressCallback
     {
         /**
          * 显示初始化接口的结果
