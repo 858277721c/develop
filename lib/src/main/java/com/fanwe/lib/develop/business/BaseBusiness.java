@@ -1,12 +1,11 @@
 package com.fanwe.lib.develop.business;
 
-import com.fanwe.lib.develop.callback.IBSCallback;
 import com.fanwe.lib.develop.callback.IBSProgressCallback;
 
 /**
  * Created by zhengjun on 2017/10/31.
  */
-public abstract class BaseBusiness<T extends IBSCallback> implements IBusiness<T>
+public abstract class BaseBusiness<T> implements IBusiness<T>
 {
     private T mCallback;
 
