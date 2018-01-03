@@ -3,13 +3,13 @@ package com.fanwe.www.develop.activity;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 
-import com.fanwe.lib.develop.callback.IBSProgressCallback;
+import com.fanwe.lib.develop.callback.FBSProgressCallback;
 
 /**
  * Created by Administrator on 2017/10/31.
  */
 
-public class BaseActivity extends AppCompatActivity implements IBSProgressCallback
+public class BaseActivity extends AppCompatActivity implements FBSProgressCallback
 {
     private ProgressDialog mProgressDialog;
 

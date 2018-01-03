@@ -1,7 +1,7 @@
 package com.fanwe.www.develop.business;
 
-import com.fanwe.lib.develop.business.BaseBusiness;
-import com.fanwe.lib.develop.callback.IBSProgressCallback;
+import com.fanwe.lib.develop.business.FBusiness;
+import com.fanwe.lib.develop.callback.FBSProgressCallback;
 import com.fanwe.lib.http.PostRequest;
 import com.fanwe.lib.http.Request;
 import com.fanwe.lib.http.RequestManager;
@@ -10,7 +10,7 @@ import com.fanwe.lib.http.callback.StringRequestCallback;
 /**
  * Created by Administrator on 2017/10/31.
  */
-public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
+public class MainBusiness extends FBusiness<MainBusiness.Callback>
 {
 
     public void requestInitAndShow()
@@ -54,7 +54,7 @@ public class MainBusiness extends BaseBusiness<MainBusiness.Callback>
         RequestManager.getInstance().cancelTag(MainBusiness.class.getName());
     }
 
-    public interface Callback extends IBSProgressCallback
+    public interface Callback extends FBSProgressCallback
     {
         /**
          * 显示初始化接口的结果
