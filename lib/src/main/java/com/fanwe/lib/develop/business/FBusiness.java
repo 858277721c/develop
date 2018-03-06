@@ -20,16 +20,6 @@ public abstract class FBusiness<T>
     }
 
     /**
-     * 返回用于取消http请求的标识
-     *
-     * @return
-     */
-    public String getHttpCancelTag()
-    {
-        return getClass().getName();
-    }
-
-    /**
      * 显示加载框
      *
      * @param msg
