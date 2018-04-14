@@ -2,10 +2,11 @@ package com.fanwe.www.develop.business;
 
 import com.fanwe.lib.develop.business.FBusiness;
 import com.fanwe.lib.develop.callback.FBSProgressCallback;
-import com.fanwe.lib.http.PostRequest;
+import com.fanwe.lib.http.IRequest;
 import com.fanwe.lib.http.Request;
 import com.fanwe.lib.http.RequestManager;
 import com.fanwe.lib.http.callback.StringRequestCallback;
+import com.fanwe.lib.http.impl.httprequest.PostRequest;
 
 /**
  * Created by Administrator on 2017/10/31.
@@ -15,12 +16,13 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
 
     public void requestInitAndShow()
     {
-        Request request = new PostRequest("http://ilvbt3.fanwe.net/mapi/index.php");
-        request.param("ctl", "app").param("act", "init");
+        Request request = new PostRequest();
+        request.setUrl("http://ilvbt3.fanwe.net/mapi/index.php");
+        request.getParams().put("ctl", "app").put("act", "init");
         request.execute(new StringRequestCallback()
         {
             @Override
-            public void onPrepare(Request request)
+            public void onPrepare(IRequest request)
             {
                 super.onPrepare(request);
                 request.setTag(MainBusiness.class.getName());
