@@ -1,6 +1,6 @@
-package com.fanwe.lib.develop.business;
+package com.sd.lib.develop.business;
 
-import com.fanwe.lib.develop.callback.FBSProgressCallback;
+import com.sd.lib.develop.callback.FBSProgressCallback;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -8,9 +8,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 
-/**
- * Created by zhengjun on 2017/10/31.
- */
 public abstract class FBusiness<T>
 {
     private T mCallback;

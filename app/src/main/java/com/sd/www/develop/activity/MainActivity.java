@@ -1,16 +1,16 @@
-package com.fanwe.www.develop.activity;
+package com.sd.www.develop.activity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.fanwe.www.develop.R;
-import com.fanwe.www.develop.business.MainBusiness;
+import com.sd.www.develop.R;
+import com.sd.www.develop.business.MainBusiness;
 
 public class MainActivity extends BaseActivity implements MainBusiness.Callback
 {
-    private MainBusiness mBusiness = new MainBusiness();
+    private final MainBusiness mBusiness = new MainBusiness();
 
     private Button btn_request;
     private TextView tv_result;
@@ -22,8 +22,8 @@ public class MainActivity extends BaseActivity implements MainBusiness.Callback
         setContentView(R.layout.activity_main);
         mBusiness.setCallback(this);
 
-        btn_request = (Button) findViewById(R.id.btn_request);
-        tv_result = (TextView) findViewById(R.id.tv_result);
+        btn_request = findViewById(R.id.btn_request);
+        tv_result = findViewById(R.id.tv_result);
 
         btn_request.setOnClickListener(new View.OnClickListener()
         {

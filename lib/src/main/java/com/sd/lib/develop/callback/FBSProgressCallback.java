@@ -1,8 +1,5 @@
-package com.fanwe.lib.develop.callback;
+package com.sd.lib.develop.callback;
 
-/**
- * Created by zhengjun on 2017/10/31.
- */
 public interface FBSProgressCallback
 {
     void onBsShowProgress(String msg);

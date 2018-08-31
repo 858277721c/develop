@@ -1,9 +1,9 @@
-package com.fanwe.www.develop.activity;
+package com.sd.www.develop.activity;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 
-import com.fanwe.lib.develop.callback.FBSProgressCallback;
+import com.sd.lib.develop.callback.FBSProgressCallback;
 
 /**
  * Created by Administrator on 2017/10/31.

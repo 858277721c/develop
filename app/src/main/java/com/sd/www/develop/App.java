@@ -1,4 +1,4 @@
-package com.fanwe.www.develop;
+package com.sd.www.develop;
 
 import android.app.Application;
 
@@ -8,7 +8,6 @@ import com.fanwe.lib.http.cookie.SerializableCookieStore;
 /**
  * Created by Administrator on 2017/10/27.
  */
-
 public class App extends Application
 {
     @Override
