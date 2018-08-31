@@ -1,12 +1,12 @@
 package com.sd.www.develop.business;
 
-import com.fanwe.lib.http.IRequest;
-import com.fanwe.lib.http.Request;
-import com.fanwe.lib.http.RequestManager;
-import com.fanwe.lib.http.callback.StringRequestCallback;
-import com.fanwe.lib.http.impl.httprequest.GetRequest;
 import com.sd.lib.develop.business.FBusiness;
 import com.sd.lib.develop.callback.FBSProgressCallback;
+import com.sd.lib.http.IRequest;
+import com.sd.lib.http.Request;
+import com.sd.lib.http.RequestManager;
+import com.sd.lib.http.callback.StringRequestCallback;
+import com.sd.lib.http.impl.httprequest.GetRequest;
 
 /**
  * Created by Administrator on 2017/10/31.
@@ -17,7 +17,7 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
     public void requestInitAndShow()
     {
         Request request = new GetRequest();
-        request.setUrl("http://www.baidu.com");
+        request.setBaseUrl("https://www.baidu.com");
         request.execute(new StringRequestCallback()
         {
             @Override

@@ -2,8 +2,9 @@ package com.sd.www.develop;
 
 import android.app.Application;
 
-import com.fanwe.lib.http.RequestManager;
-import com.fanwe.lib.http.cookie.SerializableCookieStore;
+import com.sd.lib.http.RequestManager;
+import com.sd.lib.http.cookie.SerializableCookieStore;
+
 
 /**
  * Created by Administrator on 2017/10/27.
