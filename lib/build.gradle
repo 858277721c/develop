@@ -20,6 +20,7 @@ android {
 }
 
 dependencies {
+    compileOnly 'com.github.zj565061763:stream:latest.release'
 }
 
 // 指定编码
