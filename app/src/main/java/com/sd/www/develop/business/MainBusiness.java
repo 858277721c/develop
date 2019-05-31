@@ -1,5 +1,7 @@
 package com.sd.www.develop.business;
 
+import android.util.Log;
+
 import com.sd.lib.develop.business.FBusiness;
 import com.sd.lib.develop.callback.FBSProgressCallback;
 import com.sd.lib.http.IRequest;
@@ -13,6 +15,7 @@ import com.sd.lib.http.impl.httprequest.GetRequest;
  */
 public class MainBusiness extends FBusiness<MainBusiness.Callback>
 {
+    public static final String TAG = MainBusiness.class.getSimpleName();
 
     public void requestInitAndShow()
     {
@@ -24,6 +27,7 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
             public void onPrepare(IRequest request)
             {
                 super.onPrepare(request);
+                Log.i(TAG, "----- onPrepare " + this);
                 request.setTag(MainBusiness.class.getName());
             }
 
@@ -31,18 +35,35 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
             public void onStart()
             {
                 super.onStart();
+                Log.i(TAG, "----- onStart " + this);
                 showProgress("请稍后");
             }
 
             @Override
             public void onSuccess()
             {
+                Log.i(TAG, "----- onSuccess " + this);
                 getCallback().onBsShowInitResult(getResult());
+            }
+
+            @Override
+            public void onError(Exception e)
+            {
+                Log.i(TAG, "----- onError " + e + " " + this);
+                super.onError(e);
+            }
+
+            @Override
+            public void onCancel()
+            {
+                Log.i(TAG, "----- onCancel " + this);
+                super.onCancel();
             }
 
             @Override
             public void onFinish()
             {
+                Log.i(TAG, "----- onFinish " + this);
                 super.onFinish();
                 hideProgress();
             }
