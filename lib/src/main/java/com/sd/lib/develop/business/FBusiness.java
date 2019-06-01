@@ -1,84 +1,32 @@
 package com.sd.lib.develop.business;
 
-import com.sd.lib.develop.callback.FBSProgressCallback;
+import com.sd.lib.stream.FStream;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Proxy;
-import java.lang.reflect.Type;
-
-public abstract class FBusiness<T>
+public abstract class FBusiness
 {
-    private T mCallback;
+    private final String mTag;
 
-    public void setCallback(T callback)
+    public FBusiness(String tag)
     {
-        mCallback = callback;
+        mTag = tag;
+        onCreate();
     }
 
-    public T getCallback()
+    public final String getTag()
     {
-        if (mCallback == null)
-        {
-            final ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
-            final Type[] types = parameterizedType.getActualTypeArguments();
-            if (types != null && types.length == 1)
-            {
-                final Class<T> clazz = (Class<T>) types[0];
-                if (clazz.isInterface())
-                {
-                    mCallback = (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class<?>[]{clazz}, new InvocationHandler()
-                    {
-                        @Override
-                        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
-                        {
-                            final Class returnType = method.getReturnType();
-                            if (returnType.isPrimitive())
-                            {
-                                return 0;
-                            } else
-                            {
-                                return null;
-                            }
-                        }
-                    });
-                }
-            } else
-            {
-                throw new RuntimeException("generic type length must be 1");
-            }
-        }
-        return mCallback;
+        return mTag;
     }
 
-    /**
-     * 显示加载框
-     *
-     * @param msg
-     */
-    public void showProgress(String msg)
+    protected final <T extends FStream> T getStream(Class<T> clazz)
     {
-        final T callback = getCallback();
-        if (callback instanceof FBSProgressCallback)
-        {
-            FBSProgressCallback progressCallback = (FBSProgressCallback) callback;
-            progressCallback.onBsShowProgress(msg);
-        }
+        return new FStream.ProxyBuilder().setTag(getTag()).build(clazz);
     }
 
-    /**
-     * 隐藏加载框
-     */
-    public void hideProgress()
+    public void onCreate()
     {
-        final T callback = getCallback();
-        if (callback instanceof FBSProgressCallback)
-        {
-            FBSProgressCallback progressCallback = (FBSProgressCallback) callback;
-            progressCallback.onBsHideProgress();
-        }
     }
 
-    public abstract void onDestroy();
+    public void onDestroy()
+    {
+    }
 }

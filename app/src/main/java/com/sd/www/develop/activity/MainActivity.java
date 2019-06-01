@@ -10,7 +10,7 @@ import com.sd.www.develop.business.MainBusiness;
 
 public class MainActivity extends BaseActivity implements MainBusiness.Callback
 {
-    private final MainBusiness mBusiness = new MainBusiness();
+    private final MainBusiness mBusiness = new MainBusiness(toString());
 
     private Button btn_request;
     private TextView tv_result;
@@ -20,7 +20,6 @@ public class MainActivity extends BaseActivity implements MainBusiness.Callback
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mBusiness.setCallback(this);
 
         btn_request = findViewById(R.id.btn_request);
         tv_result = findViewById(R.id.tv_result);
@@ -39,12 +38,5 @@ public class MainActivity extends BaseActivity implements MainBusiness.Callback
     public void onBsShowInitResult(String result)
     {
         tv_result.setText(result);
-    }
-
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
-        mBusiness.onDestroy();
     }
 }

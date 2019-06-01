@@ -3,19 +3,25 @@ package com.sd.www.develop.business;
 import android.util.Log;
 
 import com.sd.lib.develop.business.FBusiness;
-import com.sd.lib.develop.callback.FBSProgressCallback;
+import com.sd.lib.develop.callback.BSProgress;
 import com.sd.lib.http.IRequest;
 import com.sd.lib.http.Request;
 import com.sd.lib.http.RequestManager;
 import com.sd.lib.http.callback.StringRequestCallback;
 import com.sd.lib.http.impl.httprequest.GetRequest;
+import com.sd.lib.stream.FStream;
 
 /**
  * Created by Administrator on 2017/10/31.
  */
-public class MainBusiness extends FBusiness<MainBusiness.Callback>
+public class MainBusiness extends FBusiness
 {
     public static final String TAG = MainBusiness.class.getSimpleName();
+
+    public MainBusiness(String tag)
+    {
+        super(tag);
+    }
 
     public void requestInitAndShow()
     {
@@ -36,14 +42,14 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
             {
                 super.onStart();
                 Log.i(TAG, "----- onStart " + this);
-                showProgress("请稍后");
+                getStream(BSProgress.class).onBsShowProgress("请稍后");
             }
 
             @Override
             public void onSuccess()
             {
                 Log.i(TAG, "----- onSuccess " + this);
-                getCallback().onBsShowInitResult(getResult());
+                getStream(Callback.class).onBsShowInitResult(getResult());
             }
 
             @Override
@@ -65,7 +71,7 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
             {
                 Log.i(TAG, "----- onFinish " + this);
                 super.onFinish();
-                hideProgress();
+                getStream(BSProgress.class).onBsHideProgress();
             }
         });
     }
@@ -73,10 +79,11 @@ public class MainBusiness extends FBusiness<MainBusiness.Callback>
     @Override
     public void onDestroy()
     {
+        Log.i(TAG, "----- onDestroy " + this);
         RequestManager.getInstance().cancelTag(MainBusiness.class.getName());
     }
 
-    public interface Callback extends FBSProgressCallback
+    public interface Callback extends FStream
     {
         /**
          * 显示初始化接口的结果
